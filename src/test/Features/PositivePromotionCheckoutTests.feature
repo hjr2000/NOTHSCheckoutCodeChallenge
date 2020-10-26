@@ -6,15 +6,15 @@ Feature: Tests to Exercise Checkout Functionality
       |   Travel card holder promo                  |
       |   Over 60 pounds spend 10 pc discount promo |
     When I scan the following products in the checkout
-      |   Travel Card Holder    |
-      |   Personalised Cufflinks|
-      |   Kids T-shirt          |
+      |   Travel Card Holder      |
+      |   Personalised Cufflinks  |
+      |   Kids T-shirt            |
     Then the total price expected is 66.78 pounds
 
   @Runme
   Scenario: Happy path promo check 2. Check volume discount applied for travel cards.
     Given I am running the following promotions
-      |   Travel card holder promo                  |
+      |   Travel card holder promo   |
     When I scan the following products in the checkout
       |   Travel Card Holder    |
       |   Kids T-shirt          |
@@ -36,16 +36,16 @@ Feature: Tests to Exercise Checkout Functionality
   @Runme
   Scenario: Happy path promo check 4. Check volume discount applied for a purchase consisting solely of travel card holders.
     Given I am running the following promotions
-      |   Travel card holder promo                  |
+      |   Travel card holder promo    |
     When I scan the following products in the checkout
       |   Travel Card Holder    |
       |   Travel Card Holder    |
     Then the total price expected is 17.00 pounds
 
   @Runme
-  Scenario: Happy path promo check 4. Check volume discount applied for a purchase consisting solely of travel cards.
+  Scenario: Happy path promo check 5. Check volume discount applied for a purchase consisting solely of ten travel cards holders.
     Given I am running the following promotions
-      |   Travel card holder promo                  |
+      |   Travel card holder promo    |
     When I scan the following products in the checkout
       |   Travel Card Holder    |
       |   Travel Card Holder    |

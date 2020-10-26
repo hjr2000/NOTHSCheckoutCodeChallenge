@@ -1,6 +1,6 @@
 Feature: Negative Tests to Exercise Checkout Promotion Functionality
 
-  # The purpose of these tests is to check the promotions do not fire when they are not supposed to.
+  # The purpose of these tests is to check promotions do not fire under a variety of conditions 
 
   @Runme
   Scenario: With promotions configured as active, check no promotions fire inappropriately as neither promotion condition is fulfilled
@@ -15,7 +15,7 @@ Feature: Negative Tests to Exercise Checkout Promotion Functionality
   @Runme
   Scenario: Check no "over 60 pounds total giving a 10% discount" promotion fires inappropriately when total is over 60 but the promotion is not active
     Given I am running the following promotions
-      |   Travel card holder promo                  |
+      |   Travel card holder promo    |
     When I scan the following products in the checkout
       |   Travel Card Holder      |
       |   Personalised Cufflinks  |
