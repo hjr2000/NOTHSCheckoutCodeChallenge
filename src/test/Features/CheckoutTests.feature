@@ -9,6 +9,7 @@ Feature: Tests to Exercise Checkout Functionality
       |   Travel Card Holder    |
       |   Personalised Cufflinks|
       |   Kids T-shirt          |
+    Then the total price expected is 66.78 pounds
 
 #  @Runme
 #  Scenario: test 2
