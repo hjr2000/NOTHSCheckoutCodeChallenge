@@ -1,26 +1,6 @@
 Feature: Tests to Exercise Checkout Functionality
 
   @Runme
-  Scenario: Check no promotions fire inappropriately when promotions could be applied
-    Given I am running the following promotions
-      |   Travel card holder promo                  |
-      |   Over 60 pounds spend 10 pc discount promo |
-    When I scan the following products in the checkout
-      |   Travel Card Holder    |
-      |   Personalised Cufflinks|
-    Then the total price expected is 54.25 pounds
-
-  @Runme
-  Scenario: Check no over 60 total 10% discount promotion fires inappropriately when total is over 60
-    Given I am running the following promotions
-      |   Travel card holder promo                  |
-    When I scan the following products in the checkout
-      |   Travel Card Holder    |
-      |   Personalised Cufflinks|
-      |   Kids T-shirt          |
-    Then the total price expected is 74.2 pounds
-
-  @Runme
   Scenario: Happy path promo check 1. Check over 60 total 10% discount promotion fires appropriately.
     Given I am running the following promotions
       |   Travel card holder promo                  |
@@ -53,8 +33,28 @@ Feature: Tests to Exercise Checkout Functionality
       |   Kids T-shirt            |
     Then the total price expected is 73.76 pounds
 
-#  @Runme
-#  Scenario: test 2
-#    Given I am running the following promotions
-#      | Travel card holder promo                  |
-#
+  @Runme
+  Scenario: Happy path promo check 4. Check volume discount applied for a purchase consisting solely of travel card holders.
+    Given I am running the following promotions
+      |   Travel card holder promo                  |
+    When I scan the following products in the checkout
+      |   Travel Card Holder    |
+      |   Travel Card Holder    |
+    Then the total price expected is 17.00 pounds
+
+  @Runme
+  Scenario: Happy path promo check 4. Check volume discount applied for a purchase consisting solely of travel cards.
+    Given I am running the following promotions
+      |   Travel card holder promo                  |
+    When I scan the following products in the checkout
+      |   Travel Card Holder    |
+      |   Travel Card Holder    |
+      |   Travel Card Holder    |
+      |   Travel Card Holder    |
+      |   Travel Card Holder    |
+      |   Travel Card Holder    |
+      |   Travel Card Holder    |
+      |   Travel Card Holder    |
+      |   Travel Card Holder    |
+      |   Travel Card Holder    |
+    Then the total price expected is 85.00 pounds
