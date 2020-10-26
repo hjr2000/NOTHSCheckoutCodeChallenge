@@ -17,12 +17,10 @@ public class Checkout {
             if (promotion.equals("Over 60 pounds spend 10 pc discount promo"))
             {
                 sixtyPoundsAndOverTenPercentDiscount = true;
-                continue;
             }
             else if (promotion.equals("Travel card holder promo"))
             {
                 multipleTravelCardDiscount = true;
-                continue;
             }
             else if (promotion.equals("None"))
             {
@@ -39,6 +37,7 @@ public class Checkout {
         {
             if (productToBeScanned.equals(item.productName))
             {
+                // Deal with the volume discount requirement.
                 if (productToBeScanned.equals("Travel Card Holder") && multipleTravelCardDiscount)
                 {
                     if (item.purchaseCount == 0)
@@ -56,17 +55,18 @@ public class Checkout {
                         total = total + item.volumeDiscountPrice;
                     }
                 }
+                // Nothing to see here, we're not dealing with a volume discount situation
                 else
                 {
                     total = total + item.productPrice;
                 }
+                // An item is being purchased, so no matter what, we increase the purchase count for the item.
                 item.purchaseCount++;
             }
-
         }
     }
 
-    public double total(Item[] items)
+    public double total()
     {
         // Apply final total promotion(s) if required
         if (total >= 60 && sixtyPoundsAndOverTenPercentDiscount){
