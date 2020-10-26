@@ -1,7 +1,7 @@
-Feature: Tests to Exercise Checkout Functionality
+Feature: Positive Tests to Exercise Checkout Promotion Functionality
 
   @Runme
-  Scenario: Happy path promo check 1. Check over 60 total 10% discount promotion fires appropriately.
+  Scenario: Happy path promo check 1. Check "Over 60 pound spend results in total 10% discount" promotion fires appropriately.
     Given I am running the following promotions
       |   Travel card holder promo                  |
       |   Over 60 pounds spend 10 pc discount promo |
@@ -12,7 +12,7 @@ Feature: Tests to Exercise Checkout Functionality
     Then the total price expected is 66.78 pounds
 
   @Runme
-  Scenario: Happy path promo check 2. Check volume discount applied for travel cards.
+  Scenario: Happy path promo check 2. Check volume discount applied for travel cards holders.
     Given I am running the following promotions
       |   Travel card holder promo   |
     When I scan the following products in the checkout
@@ -22,7 +22,7 @@ Feature: Tests to Exercise Checkout Functionality
     Then the total price expected is 36.95 pounds
 
   @Runme
-  Scenario: Happy path promo check 3. Check volume discount applied for travel cards and over 60 pounds spend 10% discount applied.
+  Scenario: Happy path promo check 3. Check volume discount applied for travel card holders and "over 60 pounds spend 10% discount" applied.
     Given I am running the following promotions
       |   Travel card holder promo                  |
       |   Over 60 pounds spend 10 pc discount promo |
@@ -36,6 +36,7 @@ Feature: Tests to Exercise Checkout Functionality
   @Runme
   Scenario: Happy path promo check 4. Check volume discount applied for a purchase consisting solely of travel card holders.
     Given I am running the following promotions
+      |   Over 60 pounds spend 10 pc discount promo |
       |   Travel card holder promo    |
     When I scan the following products in the checkout
       |   Travel Card Holder    |

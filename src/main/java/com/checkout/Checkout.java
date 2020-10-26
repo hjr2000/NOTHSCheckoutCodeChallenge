@@ -9,9 +9,9 @@ public class Checkout {
     boolean sixtyPoundsAndOverTenPercentDiscount = false;
     boolean multipleTravelCardDiscount = false;
 
-    public Checkout(List<String> _promotionsList)
-    {
+    public Checkout(List<String> _promotionsList) throws Exception {
         promotionsList = _promotionsList;
+
         for(String promotion:promotionsList)
         {
             if (promotion.equals("Over 60 pounds spend 10 pc discount promo"))
@@ -19,16 +19,22 @@ public class Checkout {
                 sixtyPoundsAndOverTenPercentDiscount = true;
                 continue;
             }
-            if (promotion.equals("Travel card holder promo"))
+            else if (promotion.equals("Travel card holder promo"))
             {
                 multipleTravelCardDiscount = true;
                 continue;
             }
+            else if (promotion.equals("None"))
+            {
+                // Do nothing, no promotions are set.
+            }
+            else
+                throw new Exception("Unknown promotion used in the promotion table for this test! \n Promotion name: '" + promotion +"'");
         }
     }
 
     public void scan(String productToBeScanned, Item[] items) throws Exception {
-        System.out.println("Scan method!!!!! - " + productToBeScanned);
+
         for (Item item: items)
         {
             if (productToBeScanned.equals(item.productName))
@@ -66,6 +72,7 @@ public class Checkout {
         if (total >= 60 && sixtyPoundsAndOverTenPercentDiscount){
             total = total * 0.9;
         }
+
         // Return the total, rounded to two decimal places
         return (Math.round(total * 100.0) / 100.0);
     }

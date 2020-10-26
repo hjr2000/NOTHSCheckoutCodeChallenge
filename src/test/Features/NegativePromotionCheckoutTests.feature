@@ -1,6 +1,6 @@
 Feature: Negative Tests to Exercise Checkout Promotion Functionality
 
-  # The purpose of these tests is to check promotions do not fire under a variety of conditions 
+  # The purpose of these tests is to check promotions do not fire under a variety of conditions
 
   @Runme
   Scenario: With promotions configured as active, check no promotions fire inappropriately as neither promotion condition is fulfilled
