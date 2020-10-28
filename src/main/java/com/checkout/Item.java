@@ -3,9 +3,7 @@ package com.checkout;
 public class Item {
 
     public String productCode;
-
     public String productName;
-
     public double productPrice;
     public int purchaseCount = 0;
     public double volumeDiscountPrice;
@@ -17,5 +15,4 @@ public class Item {
         this.productPrice = _productPrice;
         this.volumeDiscountPrice = _volumeDiscountPrice;
     }
-
 }

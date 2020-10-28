@@ -1,5 +1,7 @@
 Feature: Positive Tests to Exercise Checkout Promotion Functionality
 
+# The purpose of these tests is to check promotions fire as expected under a variety of conditions
+
   @Runme
   Scenario: Happy path promo check 1. Check "Over 60 pound spend results in total 10% discount" promotion fires appropriately.
     Given I am running the following promotions
